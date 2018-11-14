@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by alex on 12/19/16.
  */
-public class StartUITest {
+public class    StartUITest {
 
     /**
      * Test StartUI to create with default input.
@@ -70,7 +70,7 @@ public class StartUITest {
             answers = new String[5];
             answers[0] = "6";
             answers[1] = tracker.getItems().get(0).getId();
-            answers[2] = "comment";
+            answers[2] = "new comment for item";
             answers[3] = "4";
             answers[4] = "7";
 

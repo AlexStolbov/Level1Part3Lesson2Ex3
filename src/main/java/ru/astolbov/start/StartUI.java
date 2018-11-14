@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by alex on 12/13/16.
  */
-public class               StartUI {
+public class StartUI {
 
     /**
      * Tracker.
@@ -40,14 +40,8 @@ public class               StartUI {
      * @param inputSet - console or array
      */
     public StartUI(Input inputSet) {
-        if (inputSet == null) {
-            this.input = new ConsoleInput();
-        } else {
-            this.input = inputSet;
-        }
-
-        menuTracker = new MenuTracker(tracker, input, consoleOutput);
-
+        menuTracker = new MenuTracker(this.tracker, this.input, this.consoleOutput);
+        setInput(inputSet);
         MenuItem menuExit = new BaseItem("Exit", true) {
             public ArrayList<String> doCommandMenu() {
                 ArrayList<String> list = new ArrayList<>();
@@ -92,7 +86,12 @@ public class               StartUI {
      * @param inputSet - input
      */
     public void setInput(Input inputSet) {
-        this.input = inputSet;
+        if (inputSet == null) {
+            this.input = new ConsoleInput();
+        } else {
+            this.input = inputSet;
+        }
+        this.menuTracker.setInput(this.input);
     }
 
     /**

@@ -3,6 +3,7 @@ package ru.astolbov.models;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * Item
@@ -143,11 +144,16 @@ public class Item {
         if (this.description != null) {
             stringBuffer.append("Description: ".concat(this.description).concat(". "));
         }
-        for (Comment comment:getComments()) {
-            if (comment != null) {
-                stringBuffer.append(System.lineSeparator());
-                stringBuffer.append(" comments: ");
-                stringBuffer.append(comment.getCommentText());
+        List<Comment> comments = getComments();
+        stringBuffer.append(System.lineSeparator());
+        if (comments.size() == 0) {
+            stringBuffer.append(" No comments.");
+        } else {
+            for (Comment comment:comments) {
+                if (comment != null) {
+                    stringBuffer.append(" comments: ");
+                    stringBuffer.append(comment.getCommentText());
+                }
             }
         }
         return stringBuffer.toString();

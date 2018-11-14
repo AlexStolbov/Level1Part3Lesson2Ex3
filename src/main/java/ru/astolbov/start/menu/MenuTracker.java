@@ -89,6 +89,10 @@ public class MenuTracker {
         return exit;
     }
 
+    public void setInput(Input input) {
+        this.input = input;
+    }
+
     /**
      * Created by alex on 12/20/16.
      */
