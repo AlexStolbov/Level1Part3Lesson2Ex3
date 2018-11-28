@@ -80,8 +80,15 @@ public class MenuTracker {
 
         boolean exit;
         if (selectedMenu != null) {
-            ArrayList<String> commandResult = selectedMenu.doCommandMenu();
-            consoleOutput.toConsole(commandResult);
+            consoleOutput.toConsole(selectedMenu.doCommandMenu(), res -> {
+                        for (String strLine: res) {
+                            if (strLine != null) {
+                                System.out.print(strLine);
+                            }
+                        }
+                    }
+            );
+
             exit = selectedMenu.goExit();
         } else {
             exit = false;

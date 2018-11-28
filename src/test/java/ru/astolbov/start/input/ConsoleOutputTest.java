@@ -25,7 +25,15 @@ public class ConsoleOutputTest {
         System.setOut(new PrintStream(out));
         System.setErr(new PrintStream(out));
         ConsoleOutput consoleOutput = new ConsoleOutput();
-        consoleOutput.toConsole(testStrings);
+        //consoleOutput.toConsole(testStrings);
+        consoleOutput.toConsole(testStrings, res -> {
+                    for (String strLine: res) {
+                        if (strLine != null) {
+                            System.out.print(strLine);
+                        }
+                    }
+                }
+        );
         assertThat(testStrings, is(testStrings));
     }
 
