@@ -1,6 +1,6 @@
 package ru.astolbov.start.input;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -9,9 +9,10 @@ import java.util.function.Consumer;
 public class ConsoleOutput {
     /**
      * Show array.
-     * @param strings - array of string to show
+     * @param res - list of string to show
+     * @param cons - consumer
      */
-    public void toConsole(ArrayList<String> res, Consumer<ArrayList<String>> cons) {
+    public void toConsole(List<String> res, Consumer<List<String>> cons) {
         if (res.size() > 0) {
             System.out.printf("%s", System.lineSeparator());
             cons.accept(res);
