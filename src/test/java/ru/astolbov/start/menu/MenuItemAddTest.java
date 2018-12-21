@@ -27,6 +27,6 @@ public class MenuItemAddTest {
         MenuTracker menuTracker = new MenuTracker(new Tracker(), new StubInput(answers), new ConsoleOutput());
         MenuTracker.MenuItemAdd menuAdd = menuTracker.new MenuItemAdd();
         ArrayList<String> res = menuAdd.doCommandMenu();
-        assertTrue(res.get(1).contains(answers[0])&res.get(1).contains(answers[1]));
+        assertTrue(res.get(1).contains(answers[0]) & res.get(1).contains(answers[1]));
     }
 }

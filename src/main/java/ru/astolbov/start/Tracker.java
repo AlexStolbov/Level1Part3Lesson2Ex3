@@ -32,20 +32,20 @@ public class Tracker {
 
     /**
      * Find item by id.
+     * Заккоментированный код, это код до использования стримов.
      * @param findId - id
      * @return position of item
      */
     public Item findById(String findId) {
-        Item findItem = null;
-
-        for (Item currentItem : items) {
-            if (currentItem != null && currentItem.getId().equals(findId)) {
-                findItem = currentItem;
-                break;
-            }
-        }
-
-        return findItem;
+//        Item findItem = null;
+//        for (Item currentItem : items) {
+//            if (currentItem != null && currentItem.getId().equals(findId)) {
+//                findItem = currentItem;
+//                break;
+//            }
+//        }
+//        return findItem;
+        return items.stream().filter(it -> it.getId().equals(findId)).findAny().orElse(null);
     }
 
     /**
